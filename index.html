@@ -32,7 +32,6 @@
     .card-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #9E9BB5; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 8px; }
     .card-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* Form Styles */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .form-group { display: flex; flex-direction: column; gap: 4px; }
     .form-group.full { grid-column: 1 / -1; }
@@ -64,7 +63,7 @@
 
 <div class="topbar no-print">
   <div style="font-weight: bold; font-size: 16px;">Job Slip Generator</div>
-  <div style="font-size: 12px; opacity: 0.8;">Admin: Darsh Shiroya</div>
+  <div style="font-size: 12px; opacity: 0.8;">Admin: Shiroya Darsh</div>
 </div>
 
 <div class="tab-bar no-print">
@@ -80,22 +79,10 @@
     <div class="card">
       <div class="card-title">કંપની માહિતી</div>
       <div class="form-grid">
-        <div class="form-group full">
-          <label>કંપનીનું નામ</label>
-          <input type="text" id="company-name" value="Shreeji Enterprise">
-        </div>
-        <div class="form-group full">
-          <label>સરનામું</label>
-          <input type="text" id="company-addr" value="8, dharmanandan soc., varachha, surat">
-        </div>
-        <div class="form-group">
-          <label>ફોન નંબર</label>
-          <input type="text" id="company-phone" value="9924562646">
-        </div>
-        <div class="form-group">
-          <label>Created By</label>
-          <input type="text" id="created-by" value="Vijaybhai Antique Tex">
-        </div>
+        <div class="form-group full"><label>કંપનીનું નામ</label><input type="text" id="company-name" value="Shreeji Enterprise"></div>
+        <div class="form-group full"><label>સરનામું</label><input type="text" id="company-addr" value="8, dharmanandan soc., varachha, surat"></div>
+        <div class="form-group"><label>ફોન નંબર</label><input type="text" id="company-phone" value="9924562646"></div>
+        <div class="form-group"><label>બનાવનાર (Created By)</label><input type="text" id="created-by" value="Vijaybhai Antique Tex"></div>
       </div>
     </div>
 
@@ -104,8 +91,8 @@
       <div class="form-grid">
         <div class="form-group"><label>Jobberનું નામ</label><input type="text" id="jobber-name" placeholder="Name"></div>
         <div class="form-group"><label>Jobber ફોન</label><input type="text" id="jobber-phone" placeholder="Phone"></div>
-        <div class="form-group"><label>Jobslip No.</label><input type="text" id="jobslip-no" placeholder="101"></div>
-        <div class="form-group"><label>Design No.</label><input type="text" id="design-no" placeholder="DES-CV-9923"></div>
+        <div class="form-group"><label>Slip No.</label><input type="text" id="jobslip-no" placeholder="101"></div>
+        <div class="form-group"><label>Design No.</label><input type="text" id="design-no" placeholder="DES-99"></div>
         <div class="form-group"><label>Issue Date</label><input type="date" id="issue-date"></div>
         <div class="form-group"><label>Expected Date</label><input type="date" id="exp-date"></div>
       </div>
@@ -129,10 +116,6 @@
     <div class="card">
       <div class="card-title">Terms & Notes</div>
       <textarea id="terms" rows="2">Items lost or damaged are the responsibility of the jobber. Please deliver on time.</textarea>
-      <div style="margin-top:10px;">
-        <label>Powered By</label>
-        <input type="text" id="powered-by" value="DVS.AI">
-      </div>
     </div>
 
     <button class="btn-primary" onclick="generatePreview(true)">સેવ કરો અને પ્રિવ્યૂ જુઓ →</button>
@@ -174,7 +157,7 @@
     else { btns[2].classList.add('active'); loadHistory(); }
   }
 
-  function addItem(d='Saree', c='No Color', q='', r='') {
+  function addItem(d='Saree', c='No Color', q='150', r='0') {
     const id = ++itemCounter;
     items.push({ id, dresType: d, color: c, qty: q, rate: r });
     renderItems();
@@ -286,7 +269,7 @@
       <div style="display:flex; flex-wrap:wrap; gap:5px;">${photoHtml}</div>
       <div style="margin-top:15px; font-size:10px; color:#555; border-top:1px solid #000; padding-top:10px;"><b>Terms:</b> ${val('terms')}</div>
       <div style="margin-top:20px; display:flex; justify-content:space-between; font-size:11px;">
-        <span>Created by: <b>${val('created-by')}</b></span><span style="color:#534AB7; font-weight:bold;">Powered by: ${val('powered-by')}</span>
+        <span>Created by: <b>${val('created-by')}</b></span><span style="color:#534AB7; font-weight:bold;">Powered by: DVS.AI</span>
       </div>
     `;
     switchTab('preview');
